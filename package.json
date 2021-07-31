@@ -1,0 +1,18 @@
+{
+  "name": "javascript-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha \"tests/**/*.test.js\" --recursive --require @babel/register"
+  },
+  "author": "Tahmid Tanzim <tahmid.tanzim@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/register": "^7.14.5",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.3"
+  }
+}
