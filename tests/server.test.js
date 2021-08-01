@@ -40,4 +40,19 @@ describe('GET /users/:username', () => {
 
         stub.restore();
     });
+
+    it('returns appropriate response when the user is not found', async () => {
+        const fakeError = { message: "User not found" };
+
+        const stub = sinon
+            .stub(db, 'getUserByUsername')
+            .resolves(null);
+
+        await request(app).get('/users/xyz')
+            .expect(404)
+            .expect('Content-Type', /json/)
+            .expect(fakeError);
+
+        stub.restore();
+    });
 });
