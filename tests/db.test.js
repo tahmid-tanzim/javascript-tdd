@@ -8,6 +8,10 @@ import {
 
 
 describe('getUserByUsername', () => {
+    afterEach('reset the database', async () => {
+        await resetDatabase();
+    });
+
     it('get the correct user from the database given a username', async () => {
         const fakeData = [
             {
@@ -26,7 +30,6 @@ describe('getUserByUsername', () => {
 
         const actualResult = await getUserByUsername('abc');
         const finalDBState = await getDatabaseData('users');
-        await resetDatabase();
 
         const expectedResult = {
             id: 123,
