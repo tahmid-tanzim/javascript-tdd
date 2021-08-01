@@ -1,9 +1,8 @@
 import sinon from "sinon";
 import request from "supertest";
 import { expect } from "chai";
-import db, { getUserByUsername } from "../src/db";
+import db from "../src/db";
 import { app } from "../src/server";
-import { async } from "regenerator-runtime";
 
 describe('GET /users/:username', () => {
     it('sends the correct response when a user with username is found', async () => {
