@@ -16,8 +16,12 @@ app.get("/", (req, res) => {
 
 app.get("/users/:username", async (req, res) => {
     const { username } = req.params;
-    const user = await db.getUserByUsername(username);
-    res.status(200).json(user);
+    try {
+        const user = await db.getUserByUsername(username);
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json(error);
+    }
 });
 
 const PORT = process.env.PORT || 4200;
